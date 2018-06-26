@@ -1,4 +1,5 @@
 Expertiza::Application.routes.draw do
+  post 'user_token' => 'user_token#create'
   ###
   # Please insert new routes alphabetically!
   ###

@@ -76,6 +76,8 @@ group :development do
   gem 'quiet_assets'
   gem 'rubocop'
   gem 'selenium-webdriver', '~> 3.4', '>= 3.4.4'
+  gem 'knock'
+  gem 'rack-cors', require: 'rack/cors'
 end
 
 group :test do

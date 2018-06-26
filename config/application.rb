@@ -9,6 +9,13 @@ Bundler.require(*Rails.groups)
 module Expertiza
   class Application < Rails::Application
 
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
     #This is a logger to capture internal server errors that do not show up when testing javascript. Look in log/diagnostic.txt when there is a 500 error.
     if Rails.env == 'test'
       require File.expand_path("../diagnostic.rb", __FILE__)

@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  include Knock::Authenticable
+  # undef_method :current_user
   include AccessHelper
+  
 
   # You want to get exceptions in development, but not in production.
   unless Rails.application.config.consider_all_requests_local
@@ -54,7 +57,9 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
-
+  
+  # undef_method :current_user
+  
   private
 
   def current_user

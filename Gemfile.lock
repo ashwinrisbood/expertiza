@@ -76,6 +76,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bcrypt (3.1.12)
     bind-it (0.2.7)
       rjb (~> 1.4.3)
     builder (3.2.3)
@@ -221,6 +222,10 @@ GEM
       railties (>= 3.1.0)
     json (1.8.6)
     jwt (1.5.6)
+    knock (2.1.1)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (>= 4.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     lazy_priority_queue (0.1.1)
@@ -329,6 +334,7 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.8)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.7.1)
@@ -564,6 +570,7 @@ DEPENDENCIES
   jquery-tablesorter
   jquery-ui-sass-rails
   json (~> 1.8, >= 1.8.3)
+  knock
   launchy
   lingua
   mutant-rspec (~> 0.8.8)
@@ -578,6 +585,7 @@ DEPENDENCIES
   pry-nav
   pry-remote
   quiet_assets
+  rack-cors
   rails (~> 4.2.7.1)
   rails4-autocomplete
   rake
