@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427030840) do
+ActiveRecord::Schema.define(version: 20180629051404) do
 
   create_table "answer_tags", force: :cascade do |t|
     t.integer  "answer_id",                limit: 4
@@ -759,8 +759,10 @@ ActiveRecord::Schema.define(version: 20180427030840) do
     t.text    "public_key",                limit: 65535
     t.boolean "copy_of_emails",                          default: false
     t.integer "institution_id",            limit: 4
+    t.string  "authentication_token",      limit: 30
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["role_id"], name: "fk_user_role_id", using: :btree
 
   create_table "versions", force: :cascade do |t|
