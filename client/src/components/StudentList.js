@@ -8,33 +8,18 @@ class StudentList extends Component {
     }
     render(){
         return(
-            <div>
+            <div className="main_content">
                 <h2>Assignments</h2>
                 
                 <PublishingRights></PublishingRights>
                 
-                
-                {/* <Card>
-                    <CardBody>
-                    <CardText><strong>Tasks not yet started</strong></CardText>
-                    </CardBody>
-                </Card> */}
-
-                
-                <div>
-                    <strong>&nbsp;&nbsp;
-                        <span>
-                            &nbsp;0&nbsp;
-                        </span>
-                        Tasks not yet started
-                        </strong>
+            <div>
+                <div class="taskbox">
+                    <strong>&nbsp;&nbsp;<span class="tasknum">&nbsp;&nbsp;</span> Tasks not yet started<br/></strong><br/>
                 </div>
-                    
+            </div>
 
-
-                
-
-                <Table striped >
+            <Table striped >
                 <thead>
                     <tr>
                     <th>Assignment</th>
@@ -49,7 +34,7 @@ class StudentList extends Component {
                     <th>Publishing Rights</th>                  
                     </tr>
                 </thead>
-                </Table>
+            </Table>
 
                 
             </div>

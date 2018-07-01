@@ -3,6 +3,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import StudentList from './StudentList';
+import SignupSheet from './SignupSheet';
 
 class Main extends Component {
 
@@ -23,6 +24,7 @@ constructor(props){
           <Switch>
             <Route path ='/home' component={(HomePage)} />
             <Route path = '/studentlist' component={StudentList}/>
+            <Route path = '/sign_up_sheet' component={SignupSheet}/>
             <Redirect to="/home" />
           </Switch>
 
