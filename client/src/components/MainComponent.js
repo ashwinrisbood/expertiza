@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import {Switch, Route, Redirect} from 'react-router-dom';
 import StudentList from './StudentList';
 import SignupSheet from './SignupSheet';
+import Profile from './ProfileComponent';
+import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchProfile } from '../redux/ActionCreators'; 
 
+const mapStateToProps = state => {
+  return {
+    profile: {}
+  }
+}
+
+const mapDispatchToProps = dispatch =>({
+  fetchProfile : () => {dispatch(fetchProfile())}
+});
 class Main extends Component {
 
 constructor(props){
     super(props);
-} 
+  } 
+
+  componentDidMount(){
+    this.props.fetchProfile();
+  }
   render() {
     const HomePage = () => {
         return(
@@ -25,6 +41,7 @@ constructor(props){
             <Route path ='/home' component={(HomePage)} />
             <Route path = '/studentlist' component={StudentList}/>
             <Route path = '/sign_up_sheet' component={SignupSheet}/>
+            <Route path ='/profile' component={() => <Profile profile={this.props.profile.profile} /> } />
             <Redirect to="/home" />
           </Switch>
 
@@ -33,5 +50,5 @@ constructor(props){
     );
   }
 }
-//i know, but render kyun ho raha hai?
-export default Main;
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

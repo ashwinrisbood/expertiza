@@ -56,7 +56,9 @@ table.general td {
   padding: 3px;
 }
 
-.tasknum {
-color: #FFFFFF;
-background-color: #B73204;
+.profileform{
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
 }
