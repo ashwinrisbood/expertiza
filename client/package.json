@@ -10,6 +10,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
+<<<<<<< HEAD
+=======
+    "font-awesome": "^4.7.0",
+>>>>>>> 41b64554b66ce38d69af32046a03edd60975cc32
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-popper": "^1.0.0",
