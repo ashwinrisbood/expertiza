@@ -6,16 +6,16 @@ import SignupSheet from './SignupSheet';
 import Profile from './ProfileComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchProfile } from '../redux/ActionCreators'; 
+import { fetchProfile, fetchTasksNotYetStarted } from '../redux/ActionCreators'; 
 
 const mapStateToProps = state => {
   return {
-    profile: {}
+    tasksNotYetStarted : state.tasksNotYetStarted
   }
 }
 
 const mapDispatchToProps = dispatch =>({
-  fetchProfile : () => {dispatch(fetchProfile())}
+  fetchTasksNotYetStarted : () => {dispatch(fetchTasksNotYetStarted())}
 });
 class Main extends Component {
 
@@ -24,7 +24,7 @@ constructor(props){
   } 
 
   componentDidMount(){
-    this.props.fetchProfile();
+    this.props.tasksNotYetStarted;
   }
   render() {
     const HomePage = () => {

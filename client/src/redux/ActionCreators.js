@@ -12,7 +12,25 @@ export const fetchProfile = () =>(dispatch) => {
     return null
 }
 
+export const fetchTasksNotYetStarted = () =>(dispatch) => {
+    return axios ({
+        method : 'get',
+        url : 'http://localhost:3001/api/v1/student_tasks_list'
+    })
+    .then(response => response.data)
+    .then(tasksNotYetStarted => dispatch(addTasksNotYetStrarted(tasksNotYetStarted)))
+    .catch(error => console.log(error));
+
+}
+
+
+
 export const addProfile = (profile) => ({
     type: ActionTypes.ADD_PROFILE,
     payload: profile
+});
+
+export const addTasksNotYetStrarted = (tasksNotYetStarted) => ({
+    type: ActionTypes.ADD_TASKSNOTSTARTED,
+    payload: tasksNotYetStarted
 });
