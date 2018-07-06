@@ -16,6 +16,21 @@ handleSubmit(values) {
     console.log('Current State is: ' + JSON.stringify(values));
     alert('Current State is: ' + JSON.stringify(values));
 }
+componentDidMount() {
+    console.log(localStorage.getItem('jwt'))
+    axios({
+        method: 'get',
+        url: 'http://localhost:3000/api/v1/profile',
+        headers: { AUTHORIZATION: "Bearer " + localStorage.getItem('jwt') }
+    })
+    .then(response => {
+        console.log('-----------------------------------data recieved is ')
+        console.log(JSON.stringify(response.data['user']))
+        console.log("-----------------------------------")
+    })
+    .catch(error => console.log(error))
+}
+
 render(){
     if(this.state.institutions === undefined || this.state.institutions === null)
     {

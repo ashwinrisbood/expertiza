@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
- 
+  include AccessHelper
   # You want to get exceptions in development, but not in production.
   unless Rails.application.config.consider_all_requests_local
     rescue_from ActionView::MissingTemplate do |_exception|
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user_role?
   protect_from_forgery with: :exception
   before_action :set_time_zone
-  # before_action :authorize
+  before_action :authorize
 
   def self.verify(_args); end
 
