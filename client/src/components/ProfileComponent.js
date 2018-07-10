@@ -16,6 +16,7 @@ handleSubmit(values) {
     console.log('Current State is: ' + JSON.stringify(values));
     alert('Current State is: ' + JSON.stringify(values));
 }
+<<<<<<< HEAD
 componentDidMount() {
     console.log(localStorage.getItem('jwt'))
     axios({
@@ -30,6 +31,15 @@ componentDidMount() {
     })
     .catch(error => console.log(error))
 }
+=======
+// componentDidMount() {
+//     axios.get('http://localhost:3001/api/v1/profile/1.json')
+//     .then(response => {
+//         console.log(JSON.stringify(response))
+//     })
+//     .catch(error => console.log(error))
+// }
+>>>>>>> parent of 6e406d5... front back working with profile component
 
 render(){
     if(this.state.institutions === undefined || this.state.institutions === null)
