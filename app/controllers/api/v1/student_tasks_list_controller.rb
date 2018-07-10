@@ -18,7 +18,7 @@ class StudentTasksListController < BasicApiController
   
       ######## Students Teamed With###################
       @students_teamed_with = StudentTask.teamed_students(current_user, session[:ip])
-      render json: { status: :ok, student_tasks: @student_tasks}
+      render json: { status: :ok, studentsTeamedWith: @students_teamed_with}
     end
   
   end

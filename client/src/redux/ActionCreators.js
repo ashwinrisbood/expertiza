@@ -32,7 +32,18 @@ export const fetchTasksNotYetStarted = () =>(dispatch) => {
         url : 'http://localhost:3001/api/v1/student_tasks_list'
     })
     .then(response => response.data)
-    .then(tasksNotYetStarted => dispatch(addTasksNotYetStrarted(tasksNotYetStarted)))
+    .then(tasksNotStarted => dispatch(addTasksNotYetStrarted(tasksNotStarted)))
+    .catch(error => console.log(error));
+
+}
+
+export const fetchStudentsTeamedWith = () =>(dispatch) => {
+    return axios ({
+        method : 'get',
+        url : 'http://localhost:3001/api/v1/student_tasks_list'
+    })
+    .then(response => response.data)
+    .then(studentsTeamedWith => dispatch(addStudentsTeamedWith(studentsTeamedWith)))
     .catch(error => console.log(error));
 
 }
@@ -51,5 +62,9 @@ export const addTasksNotYetStrarted = (tasksNotYetStarted) => ({
 export const addInstitutions = (institutions) => ({
     type: ActionTypes.ADD_INSTITUTIONS,
     payload: institutions
+});
+export const addStudentsTeamedWith = (studentsTeamedWith) => ({
+    type: ActionTypes.ADD_STUDENTSTEAMEDWITH,
+    payload: studentsTeamedWith
 });
 

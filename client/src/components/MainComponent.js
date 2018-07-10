@@ -6,18 +6,20 @@ import SignupSheet from './SignupSheet';
 import Profile from './ProfileComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchProfile, fetchTasksNotYetStarted,fetchInstitutions } from '../redux/ActionCreators'; 
+import { fetchProfile, fetchStudentsTeamedWith,fetchInstitutions, fetchTasksNotYetStarted } from '../redux/ActionCreators'; 
 import Login from './login/Login';
 const mapStateToProps = state => {
   return {
     tasksNotYetStarted : state.tasksNotYetStarted,
     profile: state.profile,
-    institutions : state.institutions
+    institutions : state.institutions,
+    studentsTeamedWith : state.studentsTeamedWith
   }
 }
 
 const mapDispatchToProps = dispatch =>({
   fetchTasksNotYetStarted : () => {dispatch(fetchTasksNotYetStarted())},
+  fetchStudentsTeamedWith : () => {dispatch(fetchStudentsTeamedWith())},
   fetchProfile : () => {dispatch(fetchProfile())},
   fetchInstitutions: () => {dispatch(fetchInstitutions())}
 });
@@ -28,7 +30,8 @@ constructor(props){
   } 
 
   componentDidMount(){
-    this.props.tasksNotYetStarted;
+    this.props.fetchTasksNotYetStarted();
+    this.props.fetchStudentsTeamedWith();
     this.props.fetchProfile();
     this.props.fetchInstitutions();
   }
@@ -45,7 +48,7 @@ constructor(props){
           <Header />
           <Switch>
             <Route path ='/home' component={(HomePage)} />
-            <Route path = '/studentlist' component={StudentList}/>
+            <Route path = '/studentlist' component={() => <StudentList studentsTeamedWith={this.props.studentsTeamedWith}/>}/>
             <Route path = '/sign_up_sheet' component={SignupSheet}/>
 
             <Route path ='/profile' component={() => <Profile profile={this.props.profile} institutions = {this.props.institutions} /> } />
