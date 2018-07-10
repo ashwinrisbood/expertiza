@@ -68,3 +68,7 @@ export const addStudentsTeamedWith = (studentsTeamedWith) => ({
     payload: studentsTeamedWith
 });
 
+export const addProfile = (profile) => ({
+    type: ActionTypes.ADD_PROFILE,
+    payload: profile
+});
